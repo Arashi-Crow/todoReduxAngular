@@ -1,8 +1,8 @@
-<li class="completed">
+<li [class.completed] = "todo.completado" [class.editing] = "editando">
   <div class="view">
-    <input class="toggle" type="checkbox" checked>
-    <label>Taste JavaScript</label>
+    <input class="toggle" type="checkbox" [formControl] = "chkCompletado" >
+    <label for="test" (dblclick)="editar()">{{todo.texto}}</label>
     <button class="destroy"></button>
   </div>
-  <input class="edit" value="Create a TodoMVC template">
+  <input class="edit" name="test" type="text" (blur)="terminarEdicion()" [formControl]="txtInput" #inputFisico>
 </li>
