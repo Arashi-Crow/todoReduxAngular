@@ -31,6 +31,16 @@ const _todoReducer = createReducer(
         }
     ),
     on(
+        actions.toggleAll,
+        (state, { completado } ) =>
+             state.map(todo => {
+                return {
+                    ...todo,
+                    completado: completado
+                }
+            })                   
+    ),
+    on(
         actions.editar,
         (state, { id, texto } ) => {
             return state.map(todo => {
@@ -44,7 +54,12 @@ const _todoReducer = createReducer(
             }
             });
         }
-    )
+    ),
+    on(
+        actions.borrar,
+        (state, { id } ) => 
+            state.filter(todo => todo.id !== id)       
+    ),
 );
 
 export function todoReducer(state, action){
