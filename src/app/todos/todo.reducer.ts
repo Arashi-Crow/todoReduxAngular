@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as actions from './todo.actions';
 import { Todo } from './models/todo.model';
+import { state } from '@angular/animations';
 
 
 const initialState: Todo[] = [
@@ -60,6 +61,11 @@ const _todoReducer = createReducer(
         (state, { id } ) => 
             state.filter(todo => todo.id !== id)       
     ),
+    on(
+        actions.removeCompleted,
+        state => state.filter(todo => !todo.completado)
+        
+    )
 );
 
 export function todoReducer(state, action){

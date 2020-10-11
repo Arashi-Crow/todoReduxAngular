@@ -5,5 +5,5 @@
       <a [class.selected]="filtro === filtroActual" href="#/">{{ filtro | titlecase }}</a>
     </li>   
   </ul>
-  <button class="clear-completed">Clear completed</button>
+  <button (click)="borrarCompletados()" class="clear-completed">Clear completed</button>
 </footer>

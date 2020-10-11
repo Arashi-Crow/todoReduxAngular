@@ -9,7 +9,7 @@ const _filtroReducer = createReducer(
     on(
         actions.set,
         (state, { filter }) => filter
-    ),
+    )
 );
 
 export function filtroReducer(state, action) {
